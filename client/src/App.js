@@ -2,9 +2,19 @@
 
 function App() {
   return (
-    <div className="App">
-      App
-    </div>
+    <div className="layout">
+    
+      <header>
+        Shopping Cart
+      </header>
+      <main>
+        content
+      </main>
+      <footer>
+        footer
+      </footer>  
+     </div>
+   
   );
 }
 
