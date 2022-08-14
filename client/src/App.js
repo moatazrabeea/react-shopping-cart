@@ -1,12 +1,11 @@
+import Header from "./components/Header";
 
 
 function App() {
   return (
     <div className="layout">
     
-      <header>
-        Shopping Cart
-      </header>
+      <Header />
       <main>
         content
       </main>
