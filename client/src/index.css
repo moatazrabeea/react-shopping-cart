@@ -22,6 +22,15 @@
  }
 
  .wrapper{
+  padding: 30px;
   display: flex;
   justify-content: space-between;
+ }
+
+ .wrapper .products-wrapper{
+  width: 68px;
+ }
+
+ .wrapper .filter-wrapper {
+  width: 30px;
  }

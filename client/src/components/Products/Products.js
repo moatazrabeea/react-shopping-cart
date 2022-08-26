@@ -1,7 +1,7 @@
 import React from 'react'
-
+import  '../../css/Products/Products.css'
  function Products(props) {
-  console.log(props)
+ 
   return (
     <div className="product-wrapper">
         {props.products.map(product => (
