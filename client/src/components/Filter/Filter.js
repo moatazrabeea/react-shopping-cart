@@ -4,6 +4,7 @@ import "../../css/Filter/Filter.css"
   return (
     <div className='filter-wrapper'>
         <h2 className='filter-title'>Filter</h2>
+
         <div className='number-of-products'>Number of Products {props.numberOfProducts}</div>
         <div className='filter-by-size'>
             <span>Filter</span>

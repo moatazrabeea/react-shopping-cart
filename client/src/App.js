@@ -1,30 +1,29 @@
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-<<<<<<< Updated upstream
 
-
-function App() {
-=======
 import React,{useState} from "react";
 import data from './data.json'
 import Products from "./components/Products/Products";
 import Filter from "./components/Filter/Filter";
 import Cart from "./components/Cart/Cart";
 function App() {
+
  const[products,setProducts] = useState(data);
 
  const[size,setSize] = useState("");
  const[order,setOrder] =useState("");
+
  const[cartItems,setCartItmes] = useState(data)
+
 
 const handleFilterBySize =(e) => {
 setSize(e.target.value);
-if(e.target.value === 'All'){
+if(e.target.value == 'All'){
+
 setProducts(data)
 }
 else{
 let productsClone = [...products]
-let newProducts = productsClone.filter(p => p.size.indexOf(e.target.value) !== -1)
+let newProducts = productsClone.filter(p => p.size.indexOf(e.target.value) != -1)
+
 setProducts(newProducts)
     }
 }
@@ -48,15 +47,12 @@ setProducts(newProducts)
    setProducts(newProducts)
  }
   
->>>>>>> Stashed changes
+
   return (
     <div className="layout">
     
       <Header />
       <main>
-<<<<<<< Updated upstream
-        content
-=======
         <div className="wrapper">
           <Products products={products}/>
           <Filter 
@@ -68,7 +64,7 @@ setProducts(newProducts)
           />
         </div>
         <Cart cartItems = {cartItems}/>
->>>>>>> Stashed changes
+
       </main>
       <Footer />
      </div>
