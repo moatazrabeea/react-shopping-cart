@@ -1,23 +1,29 @@
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
+
 import React,{useState} from "react";
 import data from './data.json'
 import Products from "./components/Products/Products";
 import Filter from "./components/Filter/Filter";
+import Cart from "./components/Cart/Cart";
 function App() {
+
  const[products,setProducts] = useState(data);
 
  const[size,setSize] = useState("");
  const[order,setOrder] =useState("");
 
+ const[cartItems,setCartItmes] = useState(data)
+
+
 const handleFilterBySize =(e) => {
 setSize(e.target.value);
 if(e.target.value == 'All'){
+
 setProducts(data)
 }
 else{
 let productsClone = [...products]
 let newProducts = productsClone.filter(p => p.size.indexOf(e.target.value) != -1)
+
 setProducts(newProducts)
     }
 }
@@ -41,6 +47,7 @@ setProducts(newProducts)
    setProducts(newProducts)
  }
   
+
   return (
     <div className="layout">
     
@@ -53,8 +60,11 @@ setProducts(newProducts)
           handleFilterByOrder = {handleFilterByOrder}
           size = {size}
           order = {order}
+          numberOfProducts = {products.length}
           />
         </div>
+        <Cart cartItems = {cartItems}/>
+
       </main>
       <Footer />
      </div>
