@@ -25,7 +25,7 @@ import ProductModal from "./ProductModal";
                     <p>{product.title}</p>
                     <span>{product.price}</span>
                 </div>
-                <button>Add to Cart</button>
+                <button onClick={() => props.addToCart(product)}>Add to Cart</button>
             </div>
           </div>  
         ))}
