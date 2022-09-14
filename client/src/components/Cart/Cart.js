@@ -1,7 +1,24 @@
 import React, { useState } from 'react'
 import '../../css/Cart/Cart.css'
+import Checkout from '../Checkout/Checkout';
  function Cart(props) {
  const[showForm,setShowForm] = useState(false)
+
+ const[value,setValue] = useState("");
+
+ const handleChange =(e) => {
+  
+     setValue((prevState) => ({...prevState,[e.target.name]:e.target.value}))
+ }
+
+ const submitOrder =(e) => {
+    e.preventDefault();
+    const order = {
+     name:value.name,
+     email:value.email
+    } 
+    console.log(order)
+}
   return (
     <div className='cart-wrapper'>
      <div className='cart-title'> {props.cartItems.length === 0 ? 'Cart Empty' : <p>
@@ -31,28 +48,12 @@ import '../../css/Cart/Cart.css'
        </div>
       )}
       
-       {/* checkout form */}
-     {showForm && (
-       <div className='checkout-form'>
-       <span className='close-icon' onClick={()=>setShowForm(false)}> &times; </span>
-           <form>
-                 <div>
-                   <label>Name</label>
-                   <input type="text" name='name' required/>
-                 </div>
-
-                 <div>
-                   <label>Email</label>
-                   <input type="email" name='Email' required/>
-                 </div>
-
-                 <div>
-                   <button type='submit'>Submit</button>
-                 </div>
-           
-           </form>
-     </div>
-     )}
+      <Checkout
+          showForm={showForm} 
+          setShowForm={setShowForm}
+          handleChange={handleChange}
+          submitOrder ={submitOrder}
+      />
 
     </div>
   )

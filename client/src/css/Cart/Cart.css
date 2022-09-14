@@ -49,35 +49,3 @@
   padding: 7px;
   border-radius: 6px;
 }
-.cart-wrapper .checkout-form {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #ddd;
-  padding: 50px;
-}
-.cart-wrapper .checkout-form form {
-  width: 60%;
-  margin: auto;
-}
-.cart-wrapper .checkout-form form > div {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-.cart-wrapper .checkout-form form input {
-  height: 40px;
-  border: 1px solid #c0c0c0;
-}
-.cart-wrapper .checkout-form form button {
-  cursor: pointer;
-  height: 40px;
-}
-.cart-wrapper .checkout-form .close-icon {
-  position: absolute;
-  right: 10px;
-  top: 0;
-  font-size: 20px;
-  cursor: pointer;
-}
