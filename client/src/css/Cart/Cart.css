@@ -32,3 +32,20 @@
   padding: 7px;
   border-radius: 6px;
 }
+.cart-wrapper .cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+.cart-wrapper .cart-footer .total {
+  font-size: 20px;
+}
+.cart-wrapper button {
+  display: inline-block;
+  border: 0;
+  background: #2a5ea5;
+  color: #fff;
+  padding: 7px;
+  border-radius: 6px;
+}
