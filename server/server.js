@@ -7,7 +7,7 @@ const router = require('./routes/routes');
 const app = express();
 app.use(bodyParser.json());
 app.use('/',router);
-
+ 
  const mongoConnectionString = "mongodb://localhost/react-shopping-cart";
 
  mongoose.connect(mongoConnectionString,{
