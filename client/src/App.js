@@ -1,11 +1,13 @@
 
-import React,{useEffect, useState} from "react";
+import React,{useEffect, useState} from "react"
 import data from './data.json'
-import Products from "./components/Products/Products";
-import Filter from "./components/Filter/Filter";
-import Cart from "./components/Cart/Cart";
+import Products from "./components/Products/Products"
+import Filter from "./components/Filter/Filter"
+import Cart from "./components/Cart/Cart"
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
+import {Provider} from "react-redux"
+import store from "./store/store"
 function App() {
 
  const[products,setProducts] = useState(data);
@@ -74,25 +76,27 @@ useEffect(()=>{
 },[cartItems])
 
   return (
-    <div className="layout">
-    
-      <Header />
-      <main>
-        <div className="wrapper">
-          <Products products={products} addToCart={addToCart}/>
-          <Filter 
-          handleFilterBySize ={handleFilterBySize}
-          handleFilterByOrder = {handleFilterByOrder}
-          size = {size}
-          order = {order}
-          numberOfProducts = {products.length}
-          />
-        </div>
-        <Cart cartItems = {cartItems} removeFromCart={removeFromCart}/>
+    <Provider store={store}>
+          <div className="layout">
+        
+        <Header />
+        <main>
+          <div className="wrapper">
+            <Products products={products} addToCart={addToCart}/>
+            <Filter 
+            handleFilterBySize ={handleFilterBySize}
+            handleFilterByOrder = {handleFilterByOrder}
+            size = {size}
+            order = {order}
+            numberOfProducts = {products.length}
+            />
+          </div>
+          <Cart cartItems = {cartItems} removeFromCart={removeFromCart}/>
 
-      </main>
-      <Footer />
-     </div>
+        </main>
+        <Footer />
+      </div>
+    </Provider>
    
   );
 }
