@@ -48,6 +48,6 @@ import { fetchProducts } from "../../actions/products";
 }
 export default connect((state)=>{
   return {
-    products: state.products.products
+    products: state.products.filteredProducts
   }
 }, {fetchProducts} )(Products)
