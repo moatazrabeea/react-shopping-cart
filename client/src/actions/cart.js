@@ -6,7 +6,7 @@ export const addToCart = (product)=>{
             const cartItemsClone = getState().cart.cartItems;
             let productExist = false;
             cartItemsClone.forEach(p => {
-            if(p.id === product.id){
+            if(p._id === product._id){
             p.qty++;
             productExist = true; 
             }
@@ -25,15 +25,16 @@ export const addToCart = (product)=>{
 } 
 
 export const removeCart = (product)=>{
-    return(dispatch,getState) => {
+    return(dispatch, getState) => {
         const cartItems = getState().cart.cartItems;
         const cartItemsClone = [...cartItems];
+        const updatedCartItems = cartItemsClone.filter(p=> p._id !== product._id);
         dispatch({
             type:REMOVE_CART,
             data:{
-                cartItems:cartItemsClone.filter(p=> p.id !== product.id)
+                cartItems:updatedCartItems
             }
         })
-        localStorage.setItem("cartItems",JSON.stringify(cartItemsClone))
+        localStorage.setItem("cartItems",JSON.stringify(updatedCartItems))
     }
 }

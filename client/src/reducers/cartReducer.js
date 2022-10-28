@@ -1,8 +1,10 @@
 import { ADD_CART, REMOVE_CART } from "../actions/types";
 
 
-export const cartReducer = (state={},action)=> {
-    cartItems:JSON.parse(localStorage.getItem('cartitems')) || [];
+export const cartReducer = (state={
+    cartItems:JSON.parse(localStorage.getItem('cartitems')) || []
+},action)=> {
+
 switch (action.type){
     case ADD_CART:
         return {cartItems:action.data.cartItems}
