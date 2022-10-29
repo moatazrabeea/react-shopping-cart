@@ -2,8 +2,9 @@ import { ADD_CART, REMOVE_CART } from "./types";
 
 export const addToCart = (product)=>{
         return (dispatch,getState)=>{
-
-            const cartItemsClone = getState().cart.cartItems;
+            debugger;
+            const cartItems = getState().cart.cartItems;
+            const cartItemsClone = [...cartItems];
             let productExist = false;
             cartItemsClone.forEach(p => {
             if(p._id === product._id){
@@ -19,7 +20,7 @@ export const addToCart = (product)=>{
             data:{
                 cartItems:cartItemsClone
             }
-          })
+          });
           localStorage.setItem("cartItems",JSON.stringify(cartItemsClone))
         }
 } 

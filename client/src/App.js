@@ -15,7 +15,7 @@ function App() {
  const[size,setSize] = useState("");
  const[order,setOrder] =useState("");
 
- const[cartItems,setCartItmes] = useState(JSON.parse(localStorage.getItem('cartitems')) || [])
+ const[cartItems,setCartItmes] = useState(JSON.parse(localStorage.getItem('cartItems')) || [])
 
 
 const handleFilterBySize =(e) => {
@@ -72,7 +72,7 @@ setProducts(newProducts)
  }
   
 useEffect(()=>{
-  localStorage.setItem('cartitems',JSON.stringify(cartItems))
+  localStorage.setItem('cartItems',JSON.stringify(cartItems))
 },[cartItems])
 
   return (

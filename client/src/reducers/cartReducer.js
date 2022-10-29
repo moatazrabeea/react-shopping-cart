@@ -2,7 +2,7 @@ import { ADD_CART, REMOVE_CART } from "../actions/types";
 
 
 export const cartReducer = (state={
-    cartItems:JSON.parse(localStorage.getItem('cartitems')) || []
+    cartItems:JSON.parse(localStorage.getItem('cartItems')) || []
 },action)=> {
 
 switch (action.type){
