@@ -2,7 +2,7 @@ import { ADD_CART, REMOVE_CART } from "./types";
 
 export const addToCart = (product)=>{
         return (dispatch,getState)=>{
-            debugger;
+        
             const cartItems = getState().cart.cartItems;
             const cartItemsClone = [...cartItems];
             let productExist = false;
