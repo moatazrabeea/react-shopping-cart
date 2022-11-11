@@ -9,7 +9,7 @@ router.get("/api/orders",async (req,res)=>{
 
  router.post("/api/orders",async (req,res)=>{
     const newOrder = await new order(req.body);
-    const saveOrder = newOrder.save();
+    const saveOrder = await newOrder.save();
     res.send(saveOrder)
 
  })

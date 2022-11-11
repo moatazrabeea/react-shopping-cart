@@ -5,6 +5,7 @@ import Bounce from 'react-reveal/Bounce'
 import { connect } from 'react-redux';
 import { removeCart } from '../../actions/cart';
 import OrderModal from './OrderModal';
+import {createOrder,clearOrder} from '../../actions/order';
 
  function Cart(props) {
  const[showForm,setShowForm] = useState(false)
@@ -18,16 +19,18 @@ import OrderModal from './OrderModal';
  }
 
  const closeModal =()=>{
-  setOrder(false)
+ props.clearOrder()
+ setShowForm(false)
  }
 
  const submitOrder =(e) => {
+  debugger;
     e.preventDefault();
     const order = {
      name:value.name,
      email:value.email
     } 
-    setOrder(order)
+    props.createOrder(order)
 }
   return (
     
@@ -36,7 +39,7 @@ import OrderModal from './OrderModal';
       There is {props.cartItems.length} products in cart
       </p>}</div>
       {/* Modal */}
-      <OrderModal order ={order} closeModal={closeModal} cartItems={props.cartItems}/>
+      <OrderModal order ={props.order} closeModal={closeModal} cartItems={props.cartItems}/>
       <Bounce bottom>
       <div className='cart-itmes'>
         {props.cartItems.map(item =>(
@@ -77,6 +80,7 @@ import OrderModal from './OrderModal';
 
 export default connect ((state)=>{
   return {
+    order:state.order.order,
     cartItems:state.cart.cartItems
   }
-}, {removeCart} )(Cart)
+}, {removeCart,createOrder,clearOrder} )(Cart)

@@ -12,7 +12,7 @@ import Zoom  from 'react-reveal/Zoom'
                   <Input 
                       label="name"
                       type="text"
-                      name="name"
+                      name="title"
                       onchange={props.handleChange}
                    />
  
