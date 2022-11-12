@@ -13,7 +13,7 @@ import Modal from 'react-modal';
       <table>
         <tr>
           <td>Name:</td>
-          <td>{order.name}</td>
+          <td>{order.title}</td>
         </tr>
 
         <tr>

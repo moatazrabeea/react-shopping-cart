@@ -1,7 +1,6 @@
 import { CLEAR_CART, CLEAR_ORDER, CREATE_ORDER } from "./types"
 
 export const createOrder = (order) =>{
-    alert(JSON.stringify(order));
     return (dispatch) => {
         fetch('/api/orders',{
             method:"POST",
@@ -20,7 +19,7 @@ export const createOrder = (order) =>{
             })
         })
         localStorage.clear('cartItems');
-        dispatch({type:CLEAR_CART}  )
+        dispatch({type:CLEAR_CART})
     }
 }
 
