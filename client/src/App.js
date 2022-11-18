@@ -1,13 +1,21 @@
 
+<<<<<<< Updated upstream
 import React,{useEffect, useState} from "react"
 import data from './data.json'
 import Products from "./components/Products/Products"
 import Filter from "./components/Filter/Filter"
 import Cart from "./components/Cart/Cart"
+=======
+import React  from "react"
+>>>>>>> Stashed changes
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
 import {Provider} from "react-redux"
 import store from "./store/store"
+import {BrowserRouter,Route, Routes} from "react-router-dom"
+import Home from "./pages/Home"
+import Orders from "./pages/Orders"
+import Navbar from "./components/Navbar/Navbar"
 function App() {
 
  const[products,setProducts] = useState(data);
@@ -76,11 +84,13 @@ useEffect(()=>{
 },[cartItems])
 
   return (
+    <BrowserRouter>
     <Provider store={store}>
           <div className="layout">
         
         <Header />
         <main>
+<<<<<<< Updated upstream
           <div className="wrapper">
             <Products products={products} addToCart={addToCart}/>
             <Filter 
@@ -93,11 +103,19 @@ useEffect(()=>{
           </div>
           <Cart cartItems = {cartItems} removeFromCart={removeFromCart}/>
 
+=======
+         <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} exact />
+            <Route path="/orders" element={<Orders />} exact />
+          </Routes>
+>>>>>>> Stashed changes
         </main>
         <Footer />
       </div>
     </Provider>
-   
+
+    </BrowserRouter>  
   );
 }
 
