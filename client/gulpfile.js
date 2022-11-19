@@ -9,7 +9,7 @@ gulp.task('sass' , async function(){
 // replacing the above task with another one watching any edits and apply it 
 
 gulp.task('watch',async function (){
-    gulp.watch("src/components/**/*.scss",async function(){
-        gulp.src('src/components/**/*.scss').pipe(sass()).pipe(gulp.dest('src/css'));
+    gulp.watch(["src/components/**/*.scss","src/pages/**/*.scss"],async function(){
+        gulp.src(["src/components/**/*.scss","src/pages/**/*.scss"]).pipe(sass()).pipe(gulp.dest('src/css'));
     })
 })
